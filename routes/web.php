@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\login\login;
+use App\Http\Controllers\login\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+
+// login
+
+Route::get('/',[LoginController::class ,'index'])->name('Login_System');
