@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News ;
+use App\Models\Category;
 
 class NewsController extends Controller
 {
@@ -23,7 +25,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+            $Category = Category::all();
+            return view('ControlPanel.Add-News')->with('Category' , $Category);
     }
 
     /**
@@ -34,7 +37,24 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $file = $request->file('img');
+       $file_extension = $file->getClientOriginalExtension();
+       $filename = time() . '.' . $file_extension ;
+       $filepath = 'images';
+       $request->img->move($filepath , $filename);
+
+
+
+        $News = new News();
+        $News->categoryid = $request->input('category');
+        $News->authorid = '0' ;
+        $News->Title = $request->input('title', 'test');
+        $News->body = $request->input('textarea-input', 'this is the new news body ');
+        $News->img = $filename;
+        $News->save();
+
+        return $this->showall();
+
     }
 
     /**
@@ -56,7 +76,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $News = News::find($id);
+
+        return view('ControlPanel.update-News')->with('News' , $News);
     }
 
     /**
@@ -68,7 +90,20 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $file = $request->file('img');
+       $file_extension = $file->getClientOriginalExtension();
+       $filename = time() . '.' . $file_extension ;
+       $filepath = 'images';
+       $request->img->move($filepath , $filename);
+
+
+        $News = News::find($id);
+        $News->Title = $request->input('title', 'test');
+        $News->body = $request->input('textarea-input', 'this is the new news body ');
+        $News->img = $filename;
+        $News->save();
+
+        return $this->showall();
     }
 
     /**
@@ -79,6 +114,15 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        News::destroy($id);
+        return $this->showall();
+    }
+
+
+    public function showall()
+    {
+        $News = News::all();
+        $Category = new Category();
+        return view('ControlPanel.news-list')->with('News' , $News)->with('Category' , $Category);
     }
 }

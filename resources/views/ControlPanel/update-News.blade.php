@@ -37,51 +37,7 @@
 <body>
     <!-- Left Panel -->
 
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="./"><img src="{{ asset('controle/images/logo.png') }}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="{{ asset('controle/images/logo2.png') }}" alt="Logo"></a>
-            </div>
-
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="Home.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                    </li>
-                    <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>ADMIN</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="add-admin.php">Add Admin</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="admin-list.php">Admin List</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>CATEGORY</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="add-category.php">Add category</a></li>
-                            <li><i class="fa fa-table"></i><a href="category-list.php">category List</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>NEWS</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="Add-News.php">Add news</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="news-list.php">News List</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside><!-- /#left-panel -->
-
+    @include('inc.nav')
     <!-- Left Panel -->
 
     <!-- Right Panel -->
@@ -175,18 +131,18 @@
 */
 
                                                         ?>
-                                                        <form action="../class/update-new.php?title=<?php //echo $_GET['title']?>" method="post"  class="form-horizontal">
-
+                                                        <form action="{{ route('NewsUpdate', ['id'=>$News['id']]) }}" method="post"  class="form-horizontal" enctype="multipart/form-data" >
+                                                            {{ csrf_field() }}
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title</label></div>
-                                                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="<?php //echo $item['title'];?>" value="<?php// echo $item['title'];?>" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="{{$News['Title']}}" value="{{$News['Title']}}" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
                                                             </div>
 
 
 
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">News-body</label></div>
-                                                                <div class="col-12 col-md-9"><textarea name="textarea-input" value="<?php// echo $item['body'];?>" id="textarea-input" rows="9" placeholder="<?php// echo $item['body'];?>" class="form-control"><?php echo $item['body'];?></textarea></div>
+                                                                <div class="col-12 col-md-9"><textarea name="textarea-input" value="{{$News['body']}}" id="textarea-input" rows="9" placeholder="{{$News['body']}}" class="form-control">{{$News['body']}}</textarea></div>
                                                              </div>
 
 
@@ -204,7 +160,7 @@
 
                                                                 <div class="row form-group">
                                                                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">News-Img</label></div>
-                                                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file" value="<?php// $item['img'] ; }?>"></div>
+                                                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file" value="{{$News['img']}}"></div>
                                                                 </div>
                                                                 <div class="card-footer">
                                                         <button type="submit" name="updatenew" class="btn btn-primary btn-sm">

@@ -5,6 +5,7 @@ use App\Http\Controllers\login\login;
 use App\Http\Controllers\login\LoginController;
 use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,7 @@ Route::prefix('admin')->group(function ()
     Route::get('/Delete/{id}',[AdminController::class , 'destroy'])->name('AdminDelete');
     Route::get('/Edit/{id}',[AdminController::class , 'edit'])->name('AdminEdit');
     Route::post('/Update/{id}',[AdminController::class , 'update'])->name('AdminUpdate');
+    Route::get('/Home',[AdminController::class , 'index'])->name('AdminHome');
 
 
 
@@ -73,11 +75,12 @@ Route::prefix('category')->group(function ()
 Route::prefix('news')->group(function ()
 {
 
-    //admin
 
-    Route::get('/Read',)->name('newsRead');
-    Route::get('/Store',)->name('newsStore');
-    Route::post('/Delete/{id}',)->name('newsDelete');
-    Route::post('/Update/{id}',)->name('newsUpdate');
+    Route::get('/Read',[NewsController::class , 'ShowAll'])->name('NewsRead');
+    Route::get('/Create',[NewsController::class , 'create'])->name('NewsCreate');
+    Route::post('/Store',[NewsController::class , 'store'])->name('NewsStore');
+    Route::get('/Delete/{id}',[NewsController::class , 'destroy'])->name('NewsDelete');
+    Route::get('/Edit/{id}',[NewsController::class , 'edit'])->name('NewsEdit');
+    Route::post('/Update/{id}',[NewsController::class , 'update'])->name('NewsUpdate');
 
 });
