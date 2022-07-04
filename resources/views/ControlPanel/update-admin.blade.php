@@ -195,23 +195,24 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                         {
                                                             */
                                                         ?>
-                                                            <form action="../class/update-admin.php?name=<?php //echo $_GET['name']?>" method="post" class="">
+                                                            <form action="{{ route('AdminUpdate', ['id'=>$admin['id']]) }}" method="post" class="">
+                                                                {{ csrf_field() }}
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                                                        <input type="text" id="username" name="username" placeholder="<?php //echo $admin['username']?>" value="<?php //echo $admin['username']?>" class="form-control">
+                                                                        <input type="text" id="username" name="username" placeholder=" {{$admin['username']}}" value="{{$admin['username']}}" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                                                        <input type="email" id="email" name="email" placeholder="<?php //echo $admin['email']?>" value="<?php //echo $admin['email']?>" class="form-control">
+                                                                        <input type="email" id="email" name="email" placeholder="{{ $admin['email']}}" value="{{ $admin['email']}}" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                                                                        <input type="password" id="password" name="password" placeholder="<?php //echo $admin['password'];?> " value="<?php //echo $admin['password'];}?>" class="form-control">
+                                                                        <input type="password" id="password" name="password" placeholder="{{ $admin['password']}} " value="{{ $admin['password']}}" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-actions form-group"><button type="submit" name="AdminUpdate" class="btn btn-success btn-sm">Submit</button></div>

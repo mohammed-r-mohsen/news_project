@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
 
 class AdminController extends Controller
 {
@@ -13,7 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('ControlPanel.Home');
     }
 
     /**
@@ -23,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('ControlPanel.add-admin');
     }
 
     /**
@@ -34,7 +36,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $admin = new Admin();
+        $admin->username = $request->input('username', 'requestname');
+        $admin->email = $request->input('email', 'request@example.com');
+        $admin->password = Hash::make($request->input('password', 'admin'));
+
+        $admin->save();
+
+        return $this->ShowAll();
+
     }
 
     /**
@@ -56,7 +67,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $admin = Admin::find($id);
+        return view('ControlPanel.update-admin')->with('admin' , $admin);
     }
 
     /**
@@ -68,7 +80,13 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = Admin::find($id);
+        $admin->username = $request->input('username', 'requestname');
+        $admin->email = $request->input('email', 'request@example.com');
+        $admin->password = Hash::make($request->input('password', 'admin'));
+        $admin->save();
+
+        return $this->ShowAll();
     }
 
     /**
@@ -79,6 +97,15 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Admin::destroy($id);
+
+        return $this->ShowAll();
     }
+
+   public function ShowAll()
+   {
+    $admins = Admin::all();
+     return view('ControlPanel.admin-list')->with('admins' , $admins);
+   }
+
 }

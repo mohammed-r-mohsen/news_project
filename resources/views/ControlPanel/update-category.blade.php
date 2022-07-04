@@ -187,11 +187,12 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                         <div class="card-header">EDit Category</div>
                                                         <div class="card-body card-block">
 
-                                                            <form action="../class/update.php?name=<?php //echo $_GET['name']?>" method="post" class="">
+                                                            <form action="{{ route('categoryUpdate', ['id'=>$Category->id]) }}" method="post" class="">
+                                                               {{ csrf_field() }}
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                                                        <input type="text" id="username" name="UpdateCategory" placeholder="<?php //echo $_GET['name'] ?>" class="form-control">
+                                                                        <input type="text" id="username" value="{{$Category->name}}" name="UpdateCategory" placeholder="{{$Category->name}}" class="form-control">
                                                                     </div>
                                                                 </div>
 

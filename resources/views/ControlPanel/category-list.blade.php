@@ -1,13 +1,16 @@
 
-
 <?php
 /*
-require_once '../class/AdminDB.php';
+require_once "../class/categoryDB.php";
 session_start();
 if ($_SESSION["lastpage"] == "Home.php")
 
-  {*/
-?>
+  {
+*/
+  ?>
+
+
+
 <html class="no-js" lang="en"><!--<![endif]--><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -144,7 +147,7 @@ if ($_SESSION["lastpage"] == "Home.php")
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Admins</h1>
+                        <h1>category</h1>
                     </div>
                 </div>
             </div>
@@ -159,7 +162,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Admin Table</strong>
+                                <strong class="card-title">category Table</strong>
                             </div>
                             <div class="card-body">
                                 <table class="table">
@@ -167,29 +170,29 @@ if ($_SESSION["lastpage"] == "Home.php")
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Username</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">News-number</th>
+                                            <th scope="col">number of news</th>
+                                            <th scope="col">is active </th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
 
 
-                                           @foreach ($admins as $admin)
-                                              <tr>
-                                              <th scope='row'>{{$admin["id"]}}</th>
-                                              <td>{{$admin["username"]}}</td>
-                                              <td>{{$admin["email"]}}</td>
-                                              <td> {{$admin["numOfNews"]}} </td>
-                                              <td>
-                                                  <a  href='{{ route('AdminDelete', ['id'=>$admin["id"]]) }}'><span class='ti-trash'></span><span class='icon-name'></span></a>
-                                                   <a  href='{{ route('AdminEdit', ['id'=>$admin["id"]]) }}'><span class='ti-settings'></span><span class='icon-name'></span></a>
 
-                                                   </td>
-                                          </tr>
+                                             @foreach ($Category as $category)
 
-                                           @endforeach
+                                               <tr>
+                                               <th scope='row'> {{$category["id"]}}</th>
+                                               <td>{{$category["name"]}} </td>
+                                               <td>{{$category["numOfNews"]}}</td>
+                                               <td> {{$category["isActive"]}}</td>
+                                               <td>
+                                                   <a  href='{{ route('categoryDelete', ['id'=>$category->id]) }}'><span class='ti-trash'></span><span class='icon-name'></span></a>
+                                                    <a  href='{{ route('categoryEdit', ['id'=>$category->id]) }}'><span class='ti-settings'></span><span class='icon-name'></span></a>
+                                                </td>
+                                           </tr>
 
+                                            @endforeach
 
 
 
@@ -214,7 +217,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                 <a><span class="ti-settings"></span><span class="icon-name"></span></a>
                                             </td>
                                         </tr>
--->
+                                    -->
                                     </tbody>
                                 </table>
                             </div>
@@ -259,7 +262,5 @@ if ($_SESSION["lastpage"] == "Home.php")
   else {
     return header("Location:http://localhost/news-project/news-project/login-form-v3/Login_v3/index.php");
   }
-  */
-?>
-
-
+*/
+  ?>

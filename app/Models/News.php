@@ -14,6 +14,10 @@ class News extends Model
 
     public $fillable =
     [
-
+     'categoryid' ,
+     'authorid'  ,
+     'Title' ,
+     'body' ,
+     'img'
     ];
 }

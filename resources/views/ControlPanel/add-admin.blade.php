@@ -186,7 +186,8 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                     <div class="card">
                                                         <div class="card-header">Add Admin</div>
                                                         <div class="card-body card-block">
-                                                            <form action="../class/main.php" method="post" class="">
+                                                            <form action="{{ route('AdminStore') }}" method="post" class="">
+                                                                {{ csrf_field() }}
                                                                 <div class="form-group">
                                                                     <div class="input-group">
                                                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>

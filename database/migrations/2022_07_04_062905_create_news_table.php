@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categoryid')->references('id')->on('categories')
+            $table->foreignid('categoryid')->on('categories')
             ->onDelete('cascade')
             ->onUpdate('cascade')
             ;
-            $table->foreignId('authorid')->references('id')->on('admins')
+            $table->foreignid('authorid')->on('admins')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('Title', 100)->nullable()->default('live');

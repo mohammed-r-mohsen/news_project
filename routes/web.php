@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\login\login;
 use App\Http\Controllers\login\LoginController;
 use App\Http\Controllers\Site\SiteController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,12 +39,14 @@ Route::get('/single-page' , [SiteController::class ,'singlePageIndex'])->name('s
 Route::prefix('admin')->group(function ()
 {
 
-    //admin
+    //admin 1 2 5
 
-    Route::get('/Read',)->name('AdminRead');
-    Route::get('/Store',)->name('AdminStore');
-    Route::post('/Delete/{id}',)->name('AdminDelete');
-    Route::post('/Update/{id}',)->name('AdminUpdate');
+    Route::get('/Read',[AdminController::class , 'ShowAll'])->name('AdminRead');
+    Route::get('/Create',[AdminController::class , 'create'])->name('AdminCreate');
+    Route::post('/Store',[AdminController::class , 'store'])->name('AdminStore');
+    Route::get('/Delete/{id}',[AdminController::class , 'destroy'])->name('AdminDelete');
+    Route::get('/Edit/{id}',[AdminController::class , 'edit'])->name('AdminEdit');
+    Route::post('/Update/{id}',[AdminController::class , 'update'])->name('AdminUpdate');
 
 
 
@@ -52,12 +56,14 @@ Route::prefix('admin')->group(function ()
 Route::prefix('category')->group(function ()
 {
 
-    //admin
 
-    Route::get('/Read',)->name('categoryRead');
-    Route::get('/Store',)->name('categoryStore');
-    Route::post('/Delete/{id}',)->name('categoryDelete');
-    Route::post('/Update/{id}',)->name('categoryUpdate');
+
+    Route::get('/Read',[CategoryController::class , 'ShowAll'])->name('categoryRead');
+    Route::get('/Create',[CategoryController::class , 'create'])->name('categoryCreate');
+    Route::post('/Store',[CategoryController::class , 'store'])->name('categoryStore');
+    Route::get('/Delete/{id}',[CategoryController::class , 'destroy'])->name('categoryDelete');
+    Route::get('/Edit/{id}',[CategoryController::class , 'edit'])->name('categoryEdit');
+    Route::post('/Update/{id}',[CategoryController::class , 'update'])->name('categoryUpdate');
 
 
 

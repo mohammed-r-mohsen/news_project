@@ -10,8 +10,8 @@ class Admin extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $table = 'Admin';
-    
+    protected $table = 'Admins';
+
     public $fillable =
     [
        'IsActive',
