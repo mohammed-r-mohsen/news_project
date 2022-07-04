@@ -1,10 +1,12 @@
 
 <?php
+/*
 include '../class/categoryDB.php';
 session_start();
 if ($_SESSION["lastpage"] == "Home.php")
 
 {
+    */
 ?>
 <!--<![endif]--><head>
     <meta charset="utf-8">
@@ -13,17 +15,17 @@ if ($_SESSION["lastpage"] == "Home.php")
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="{{ asset('controle/apple-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('controle/favicon.ico') }}">
 
 
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="{{ asset('controle/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('controle/vendors/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('controle/vendors/themify-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('controle/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('controle/vendors/selectFX/css/cs-skin-elastic.css') }}">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('controle/assets/css/style.css') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
 
@@ -41,8 +43,8 @@ if ($_SESSION["lastpage"] == "Home.php")
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="{{ asset('controle/images/logo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="{{ asset('controle/images/logo2.png') }}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -56,7 +58,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="add-admin.php">Add Admin</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="admin-list.php">Admin List</a></li>
-                           
+
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -73,7 +75,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                             <li><i class="menu-icon fa fa-th"></i><a href="news-list.php">News List</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -92,13 +94,13 @@ if ($_SESSION["lastpage"] == "Home.php")
 
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    
+
                 </div>
 
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{ asset('controle/images/admin.jpg') }}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -146,7 +148,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="content mt-3">
@@ -154,10 +156,10 @@ if ($_SESSION["lastpage"] == "Home.php")
 
 
                 <div class="row">
-                    
+
                     <!--/.col-->
 
-                    
+
 
                                             <div class="col-lg-6">
                                                 <div class="card">
@@ -166,14 +168,14 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                     </div>
                                                     <div class="card-body card-block">
                                                         <form action="../class/main.php" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                                            
+
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title</label></div>
                                                                 <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="title" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
                                                             </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">News-body</label></div>
                                                                 <div class="col-12 col-md-9"><textarea name="textarea-input"  id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
@@ -184,31 +186,31 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                                         <select name="category" id="select" class="form-control">
                                                                         <option value="0">Please select</option>
                                                                            <?php
-                                                                           
+
                                                                             $category = categoryDB::GetCategoryDB()->GetCategoryData();
                                                                             foreach ($category as $item) {
-                                                                               echo ' <option value=' . $item["name"]. "> " . $item["name"] . "</option> " ; 
+                                                                               echo ' <option value=' . $item["name"]. "> " . $item["name"] . "</option> " ;
                                                                             }
                                                                             ?>
-                                                                            
-                                                                            
-                                                                           
+
+
+
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <div class="row form-group">
                                                                     <div class="col col-md-3"></div>
                                                                     <div class="col-12 col-md-9">
-                                                                        
+
                                                                     </div>
                                                                 </div>
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
+
+
+
+
+
+
                                                                 <div class="row form-group">
                                                                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">News-Img</label></div>
                                                                     <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file"></div>
@@ -223,32 +225,32 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                     </div>
                                                         </form>
                                                     </div>
-                                                   
+
                                                 </div>
-                                                
+
                                             </div>
 
-                                            
 
-                                            
 
-                                            
 
-                                            
 
-                                                
 
-                                                
 
-                                                
 
-                                                
 
-                                                
 
-                                                
 
-                                                
+
+
+
+
+
+
+
+
+
+
+
                                             </div>
                                         </div><!-- .animated -->
                                     </div><!-- .content -->
@@ -256,23 +258,25 @@ if ($_SESSION["lastpage"] == "Home.php")
                                 <!-- Right Panel -->
 
 
-                            <script src="vendors/jquery/dist/jquery.min.js"></script>
-                            <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+                            <script src="{{ asset('controle/vendors/jquery/dist/jquery.min.js') }}"></script>
+                            <script src="{{ asset('controle/vendors/popper.js/dist/umd/popper.min.js') }}"></script>
 
-                            <script src="vendors/jquery-validation/dist/jquery.validate.min.js"></script>
-                            <script src="vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+                            <script src="{{ asset('controle/vendors/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+                            <script src="{{ asset('controle/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
 
-                            <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-                            <script src="assets/js/main.js"></script>
+                            <script src="{{ asset('controle/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+                            <script src="{{ asset('controle/assets/js/main.js') }}"></script>
 
 
 </body>
 
-<?php 
+<?php
+/*
   }
   else {
     //return header("Location:http://localhost/news-project/news-project/login-form-v3/Login_v3/index.php");
-  
-   echo $_SESSION["lastpage"] ; 
-}
+
+   echo $_SESSION["lastpage"] ;
+}*/
+
 ?>
