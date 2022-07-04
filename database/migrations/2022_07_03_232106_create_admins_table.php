@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('NumberOfNews')->unsigned()->nullable()->default(0);
             $table->string('email', 100)->nullable()->default('example@gmail.com')->unique();
             $table->string('username', 100)->nullable()->default('admin')->unique();
-            $table->string('password', 100)->nullable()->default(Hash::make("admin"));
+            $table->string('password', 100)->nullable()->default("admin");
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

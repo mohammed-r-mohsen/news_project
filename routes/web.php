@@ -27,7 +27,8 @@ Route::get('/', function () {
 // login
 
 Route::get('/',[LoginController::class ,'index'])->name('Login_System');
-
+Route::post('/check',[LoginController::class , 'check'])->name('check-login');
+Route::get('/logout',[LoginController::class , 'logout'])->name('logout_system');
 
 //site
 

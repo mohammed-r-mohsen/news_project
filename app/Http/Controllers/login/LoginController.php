@@ -4,9 +4,14 @@ namespace App\Http\Controllers\login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use App\Models\Admin;
 class LoginController extends Controller
 {
+
+
+  public static $isactive;
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +38,29 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function check(Request $request)
     {
-        //
+        $username = $request->input('username');
+        $Admin = Admin::all();
+
+        foreach ($Admin as $item) {
+            if($item['username'] == $username && $item['password'] == $request->input('pass'))
+            {
+
+
+                return redirect()->route('AdminHome');
+
+            }
+        }
+
+        return redirect()->route('site');
+
+    }
+
+    public function logout()
+    {
+       
+        return view('site.index')->with('login' , 'false');
     }
 
     /**

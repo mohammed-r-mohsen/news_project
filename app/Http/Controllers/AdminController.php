@@ -40,7 +40,7 @@ class AdminController extends Controller
         $admin = new Admin();
         $admin->username = $request->input('username', 'requestname');
         $admin->email = $request->input('email', 'request@example.com');
-        $admin->password = Hash::make($request->input('password', 'admin'));
+        $admin->password = $request->input('password', 'admin');
 
         $admin->save();
 
@@ -83,7 +83,7 @@ class AdminController extends Controller
         $admin = Admin::find($id);
         $admin->username = $request->input('username', 'requestname');
         $admin->email = $request->input('email', 'request@example.com');
-        $admin->password = Hash::make($request->input('password', 'admin'));
+        $admin->password = $request->input('password', 'admin');
         $admin->save();
 
         return $this->ShowAll();

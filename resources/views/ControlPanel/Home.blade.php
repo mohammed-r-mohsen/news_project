@@ -1,13 +1,5 @@
-<?php
-/*
-include '../class/login.php';
-if (login::getIsActive())
-{
-   session_start();
-   $_SESSION["lastpage"] = "Home.php";
-*/
 
-?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -75,7 +67,7 @@ if (login::getIsActive())
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="{{ route('logout_system') }}"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
 
@@ -367,11 +359,3 @@ if (login::getIsActive())
 
 </html>
 
-<?php
-/*
-  }
-  else {
-    return header("Location:http://localhost/news-project/news-project/login-form-v3/Login_v3/index.php");
-  }
-  */
-?>

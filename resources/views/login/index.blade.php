@@ -32,7 +32,11 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{{ asset('login/images/bg-01.jpg') }}');">
 			<div class="wrap-login100">
-				<form action="#" method="post" class="login100-form validate-form">
+
+                <form action="{{ route('check-login') }}" method="post" class="login100-form validate-form">
+
+                    {{ csrf_field() }}
+
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>

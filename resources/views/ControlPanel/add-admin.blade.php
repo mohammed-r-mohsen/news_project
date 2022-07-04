@@ -1,11 +1,7 @@
-<?php
-/*
-session_start();
-if ($_SESSION["lastpage"] == "Home.php")
 
-{
-*/
-?>
+
+
+
 
 <html class="no-js" lang="en"><!--<![endif]--><head>
     <meta charset="utf-8">
@@ -186,9 +182,3 @@ if ($_SESSION["lastpage"] == "Home.php")
 
 </body></html>
 
-<?php
-  /*}
-  else {
-    return header("Location:http://localhost/news-project/news-project/login-form-v3/Login_v3/index.php");
-  }*/
-?>
