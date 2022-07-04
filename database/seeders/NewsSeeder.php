@@ -5,19 +5,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class NewsSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            AdminSeeder::class ,
-            CategorySeeder::class ,
-            NewsSeeder::class
-        ]);
+        // theres no seeder must be here because we need a img 
     }
 }

@@ -34,3 +34,44 @@ Route::get('/single-page' , [SiteController::class ,'singlePageIndex'])->name('s
 
 //admin
 
+Route::prefix('admin')->group(function ()
+{
+
+    //admin
+
+    Route::get('/Read',)->name('AdminRead');
+    Route::get('/Store',)->name('AdminStore');
+    Route::post('/Delete/{id}',)->name('AdminDelete');
+    Route::post('/Update/{id}',)->name('AdminUpdate');
+
+
+
+
+});
+
+Route::prefix('category')->group(function ()
+{
+
+    //admin
+
+    Route::get('/Read',)->name('categoryRead');
+    Route::get('/Store',)->name('categoryStore');
+    Route::post('/Delete/{id}',)->name('categoryDelete');
+    Route::post('/Update/{id}',)->name('categoryUpdate');
+
+
+
+
+});
+
+Route::prefix('news')->group(function ()
+{
+
+    //admin
+
+    Route::get('/Read',)->name('newsRead');
+    Route::get('/Store',)->name('newsStore');
+    Route::post('/Delete/{id}',)->name('newsDelete');
+    Route::post('/Update/{id}',)->name('newsUpdate');
+
+});
