@@ -32,3 +32,5 @@ Route::get('/news-project' , [SiteController::class , 'index'])->name('site');
 Route::get('/single-page' , [SiteController::class ,'singlePageIndex'])->name('site-SinglePage');
 
 
+//admin
+
