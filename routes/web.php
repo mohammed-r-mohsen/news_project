@@ -30,3 +30,5 @@ Route::get('/',[LoginController::class ,'index'])->name('Login_System');
 
 Route::get('/news-project' , [SiteController::class , 'index'])->name('site');
 Route::get('/single-page' , [SiteController::class ,'singlePageIndex'])->name('site-SinglePage');
+
+
