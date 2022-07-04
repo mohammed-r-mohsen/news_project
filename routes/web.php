@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\login\login;
 use App\Http\Controllers\login\LoginController;
+use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,9 @@ Route::get('/', function () {
 // login
 
 Route::get('/',[LoginController::class ,'index'])->name('Login_System');
+
+
+//site
+
+Route::get('/news-project' , [SiteController::class , 'index'])->name('site');
+Route::get('/single-page' , [SiteController::class ,'singlePageIndex'])->name('site-SinglePage');

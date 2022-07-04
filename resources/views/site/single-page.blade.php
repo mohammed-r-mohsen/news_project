@@ -8,7 +8,7 @@
         <meta content="Bootstrap Ecommerce Template Free Download" name="description">
 
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+        <link href="{{ asset('site/img/favicon.ico') }}" rel="icon">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/slick/slick.css" rel="stylesheet">
-        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="{{ asset('site/lib/slick/slick.css') }}" rel="stylesheet">
+        <link href="{{ asset('site/lib/slick/slick-theme.css') }}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="{{ asset('site/style.css') }}" rel="stylesheet">
     </head>
 
     <body>
@@ -31,7 +31,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="logo">
                             <a href="">
-                                <img src="img/logo.png" alt="Logo">
+                                <img src="{{ asset('site/img/logo.png') }}" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -86,8 +86,8 @@
             </div>
         </div>
         <!-- Header End -->
-        
-        
+
+
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
             <div class="container-fluid">
@@ -99,15 +99,15 @@
             </div>
         </div>
         <!-- Breadcrumb End -->
-        
-        
+
+
         <!-- Single News Start-->
         <div class="single-news">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="sn-img">
-                            <img src="img/top-news-1.jpg" />
+                            <img src="{{ asset('site/img/top-news-1.jpg') }}" />
                         </div>
                         <div class="sn-content">
                             <a class="sn-title" href="">Lorem ipsum dolor sit amet</a>
@@ -116,10 +116,10 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique dictum tincidunt. Nam rhoncus sem vitae orci blandit, quis fermentum justo laoreet. Fusce vestibulum orci vitae luctus tincidunt. Maecenas eros elit, scelerisque at justo eget, consectetur semper turpis. Proin pulvinar lorem eu sapien fermentum, sed finibus augue convallis. Aliquam ultrices porta gravida. Vestibulum nec libero sit amet enim consequat facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras facilisis massa eget suscipit venenatis. Suspendisse et molestie diam. Vestibulum in massa dapibus, blandit nibh ut, feugiat leo.
                             </p>
                             <p>
-                                Nulla consectetur risus libero. Donec mattis tortor justo, ac egestas purus condimentum in. Etiam viverra nec metus quis egestas. Nulla commodo, lectus nec dictum malesuada, tortor tellus consequat nisi, sit amet dictum erat tellus in libero. In dignissim lectus quis elit posuere, sit amet tempor nisi iaculis. Curabitur eget ante in libero laoreet finibus nec et libero. In hac habitasse platea dictumst. Morbi tincidunt ex non odio auctor tristique. Nulla facilisi. Maecenas ullamcorper, felis eget interdum semper, mi ipsum auctor magna, ut ullamcorper leo metus vitae ex. Curabitur eu tempor elit. Phasellus blandit elit fringilla, ultricies ligula sed, pretium ligula. Duis condimentum elementum orci, pulvinar mattis elit luctus at. Vestibulum lacinia porttitor urna, eget aliquet justo porta sed. Cras pulvinar euismod consectetur. Vestibulum quis nisi non erat feugiat viverra. 
+                                Nulla consectetur risus libero. Donec mattis tortor justo, ac egestas purus condimentum in. Etiam viverra nec metus quis egestas. Nulla commodo, lectus nec dictum malesuada, tortor tellus consequat nisi, sit amet dictum erat tellus in libero. In dignissim lectus quis elit posuere, sit amet tempor nisi iaculis. Curabitur eget ante in libero laoreet finibus nec et libero. In hac habitasse platea dictumst. Morbi tincidunt ex non odio auctor tristique. Nulla facilisi. Maecenas ullamcorper, felis eget interdum semper, mi ipsum auctor magna, ut ullamcorper leo metus vitae ex. Curabitur eu tempor elit. Phasellus blandit elit fringilla, ultricies ligula sed, pretium ligula. Duis condimentum elementum orci, pulvinar mattis elit luctus at. Vestibulum lacinia porttitor urna, eget aliquet justo porta sed. Cras pulvinar euismod consectetur. Vestibulum quis nisi non erat feugiat viverra.
                             </p>
                             <p>
-                                Aliquam eleifend pharetra nunc, et finibus felis tristique nec. Ut mattis nisi ante, vel varius ipsum consectetur sit amet. Donec sed eros at magna sollicitudin molestie. Cras quis malesuada felis. Maecenas sodales nunc sit amet lobortis iaculis. Etiam eget consectetur sem, et aliquet justo. Curabitur at viverra lacus, eget feugiat erat. Fusce lacinia faucibus diam ut vestibulum. Vestibulum nisi sem, lacinia ullamcorper iaculis a, finibus eget mauris. Vestibulum elementum quam quam, sit amet condimentum odio luctus at. Aenean dictum nec nisi vitae hendrerit. Nulla facilisi. 
+                                Aliquam eleifend pharetra nunc, et finibus felis tristique nec. Ut mattis nisi ante, vel varius ipsum consectetur sit amet. Donec sed eros at magna sollicitudin molestie. Cras quis malesuada felis. Maecenas sodales nunc sit amet lobortis iaculis. Etiam eget consectetur sem, et aliquet justo. Curabitur at viverra lacus, eget feugiat erat. Fusce lacinia faucibus diam ut vestibulum. Vestibulum nisi sem, lacinia ullamcorper iaculis a, finibus eget mauris. Vestibulum elementum quam quam, sit amet condimentum odio luctus at. Aenean dictum nec nisi vitae hendrerit. Nulla facilisi.
                             </p>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                             <div class="sidebar-widget">
                                 <h2><i class="fas fa-align-justify"></i>Ads 1 column</h2>
                                 <div class="image">
-                                    <a href=""><img src="img/adds-1.jpg" alt="Image"></a>
+                                    <a href=""><img src="{{ asset('site/img/adds-1.jpg') }}" alt="Image"></a>
                                 </div>
                             </div>
 
@@ -173,10 +173,10 @@
                                 <div class="image">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <a href=""><img src="img/adds-2.jpg" alt="Image"></a>
+                                            <a href=""><img src="{{ asset('site/img/adds-2.jpg') }}" alt="Image"></a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href=""><img src="img/adds-2.jpg" alt="Image"></a>
+                                            <a href=""><img src="{{ asset('site/img/adds-2.jpg') }}" alt="Image"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -187,8 +187,8 @@
             </div>
         </div>
         <!-- Single News End-->
-        
-        
+
+
         <!-- Footer Start -->
         <div class="footer">
             <div class="container-fluid">
@@ -236,7 +236,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
                             <h3 class="title">Newsletter</h3>
@@ -282,11 +282,11 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/slick/slick.min.js"></script>
+        <script src="{{ asset('site/lib/easing/easing.min.js') }}"></script>
+        <script src="{{ asset('site/lib/slick/slick.min.js') }}"></script>
 
 
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src="{{ asset('site/js/main.js') }}"></script>
     </body>
 </html>
