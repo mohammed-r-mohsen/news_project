@@ -59,8 +59,8 @@ class LoginController extends Controller
 
     public function logout()
     {
-       
-        return view('site.index')->with('login' , 'false');
+
+        return view('site.index');
     }
 
     /**

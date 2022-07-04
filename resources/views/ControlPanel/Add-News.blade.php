@@ -125,7 +125,7 @@ if ($_SESSION["lastpage"] == "Home.php")
                                                     <div class="card-body card-block">
                                                         <form action="{{ route('NewsStore') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                                                              {{ csrf_field() }}
-                                                            <div class="row form-group">
+                                                             <div class="row form-group">
                                                                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Title</label></div>
                                                                 <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="title" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
                                                             </div>

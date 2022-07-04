@@ -100,26 +100,17 @@
                     <div class="col-md-6 tn-left">
                         <div class="tn-img">
 
-                            <?php
-/*
-                             $row = NewsDB::GetnewsDB()->GetlastData(5);
-*/
-                            ?>
-                            <img src="<?php
-                            /*
-                            if(count($row)>0)
-                              echo "../class/testimg/".$row[0]['img'];
-                              else echo "../news-website-templates/img/cat-news-1.jpg"
-                              */?>"
+                            <img src="
 
-                              />
+                            @if(count($News)>0)
+                               {{asset('images/' . $images[0]['img'])}}
+                              "/>
                             <div class="tn-content">
                                 <div class="tn-content-inner">
                                     <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                    <a class="tn-title" href=""><?php
-                                /*     if (count($row)>0)
-                                     echo $row[0]['title'];
-                                  */   ?>
+                                    <a class="tn-title" href="">
+                                     @if (count($News)>0)
+                                       {{ $News[0]['title']}}
                                      </a>
                                 </div>
                             </div>
@@ -142,17 +133,17 @@
                             <div class="col-md-6">
 
                                 <div class="tn-img">
-                                    <img src="../class/testimg/<?php  //echo $item['img'] ;?>" />
+                                    <img src="{{ asset('images/' . $item['img']) }}" />
                                     <div class="tn-content">
                                         <div class="tn-content-inner">
                                             <a class="tn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="tn-title" href=""><?php //echo $item['title']?></a>
+                                            <a class="tn-title" href="">{{$item['title']}}</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <?php// }?>
+
                         </div>
                     </div>
 
@@ -172,32 +163,34 @@
                 <div class="row">
 
 
-                            <?php
-                            /*
-                     $category = NewsDB::GetnewsDB()->GetCategoryData();
 
-                     foreach ($category as $item) {
-*/
 
-                     ?>
+
+
+                     @foreach ($Category as $item)
+
+
+
                     <div class="col-md-6">
-                    <h2><i class="fas fa-align-justify"></i><?php// echo $item['name'];?></h2>
+                    <h2><i class="fas fa-align-justify"></i>{{$item['name']}}</h2>
                         <div class="row cn-slider">
-                        <?php
-  /*
-  $categorynews = NewsDB::GetnewsDB()->GetCategorynews($item['name']);
-                            $categnames = $item['name'];
-                            foreach ($categorynews as $news) {
 
-*/
-                            ?>
+
+@php
+    $categnames = $item['name'];
+@endphp
+
+                            @foreach ($categorynews as $news)
+
+
+
                             <div class="col-md-6">
                                 <div class="cn-img">
-                                    <img src="../class/testimg/<?php // echo $news['img'] ;?>" />
+                                    <img src="{{ asset('images/' . $news['img']) }} " />
                                     <div class="cn-content">
                                         <div class="cn-content-inner">
                                             <a class="cn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
-                                            <a class="cn-title" href=""><?php //echo $news['title'] ; ?></a>
+                                            <a class="cn-title" href="">{{$news['title']}} </a>
                                         </div>
                                     </div>
                                 </div>
@@ -235,25 +228,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h2><i class="fas fa-align-justify"></i>Latest News</h2>
-                                <?php
-                            //      $footernews =  NewsDB::GetnewsDB()->Getfirstata(12);
-                                ?>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mn-img">
-                                            <img src="<?php
-                                            /*
-                            if(count($footernews)>0 )
-                              echo "../class/testimg/".$footernews[0]['img'];
-                              else echo "../news-website-templates/img/cat-news-1.jpg";
-                              */?>" />
+                                            <img src="
+
+                            @if(count($footernews)>0 )
+                               "{{ asset('images/'.$footernews[0]['img']) }}
+                            @endif
+                               />
                                         </div>
                                         <div class="mn-content">
                                             <a class="mn-title" href="">
                                                 <?php
-                                                /*
+
                                                 if (count($footernews)>0)
-                                                echo $footernews[0]['title'];*/ ?></a>
+                                                echo $footernews[0]['title']; ?></a>
                                             <a class="mn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
                                             <p>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed porta dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos...
@@ -261,25 +251,24 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <?php
-                                        /*
-                                        unset($footernews[0]);
-                                        foreach ($footernews as $key => $latestnews) {
-*/
 
 
-                                        ?>
+
+                                        @foreach (array_reverse($news) as $key => $latestnews)
+
+
+
+
 
                                         <div class="mn-list">
                                             <div class="mn-img">
                                                 <img src="<?php //echo "../class/testimg/".$latestnews['img'];?>" />
                                             </div>
                                             <div class="mn-content">
-                                                <a class="mn-title" href=""><?php// echo $latestnews['title']; ?></a>
+                                                <a class="mn-title" href="">  {{$latestnews['title']}}</a>
                                                 <a class="mn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
                                             </div>
                                         </div>
-                                       <?php //}?>
 
 
 
@@ -292,21 +281,24 @@
                                 <div class="row">
                                 <div class="col-lg-6">
                                         <div class="mn-img">
-                                        <img src="<?php
-/*
-                            if(count($footernews)>4 )
-                              echo "../class/testimg/".$footernews[4]['img'];
-                              else echo "../news-website-templates/img/cat-news-1.jpg";
-  */                            ?>" />
+                                        <img src="
+
+                            @if(count($news)>4 )
+
+
+                            {{ asset('images/ '. $news[4]['img']) }}
+
+                            @endif
+                              " />
                                         </div>
                                         <div class="mn-content">
                                             <a class="mn-title" href="">
-                                                <?php
-                                            /*
-                                            if (count($footernews)>4)
-                                                   echo $footernews[4]['title'];
-                                              */
-                                                ?>
+
+
+                                            @if (count($news)>4)
+                                                 $footernews[4]['title'];
+                                            @endif
+
                                             </a>
                                             <a class="mn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
                                             <p>
@@ -316,29 +308,32 @@
                                     </div>
 
                                     <div class="col-lg-6">
-                                    <?php
-                                    /*
-                                    if (count($footernews)>4)
-                                    unset($footernews[4]);
-                                    foreach ($footernews as $key => $popluernews) {
-                                       if($key<4)continue;
 
-                                    */
-                                    ?>
+
+
+                                    @foreach ($news->reverse() as $key => $popluernews) {
+                                       @if($key<4)
+                                       @continue;
+                                       @endif
+
+
+
+
+
                                         <div class="mn-list">
                                             <div class="mn-img">
-                                                <img src=" <?php //echo "../class/testimg/".$popluernews['img']; ?>" />
+                                                <img src=" {{ asset('images/'.$popluernews['img']) }} "/>
                                             </div>
                                             <div class="mn-content">
                                                 <a class="mn-title" href="">
-                                                    <?php
-                                                    /*
-                                                     echo $popluernews['title'];*/  ?></a>
+
+
+                                                     {{ $popluernews['Title']}}  </a>
                                                 <a class="mn-date" href=""><i class="far fa-clock"></i>05-Feb-2020</a>
                                             </div>
                                         </div>
 
-                                      <?php //} ?>
+
 
 
 
@@ -354,13 +349,15 @@
                                 <h2><i class="fas fa-align-justify"></i>Category</h2>
                                 <div class="category">
                                     <ul class="fa-ul">
-                                        <?php
-/*
-                                        $category = NewsDB::GetnewsDB()->GetCategoryData();
-                                        foreach ($category as $item) {
-                                            echo "<li><span class='fa-li'><i class='far fa-arrow-alt-circle-right'></i></span><a href=''>" . $item['name'] . "</a></li>";
-                                        }
-  */                                      ?>
+
+
+
+                                        @foreach ($Category as $item)
+
+                                        <li><span class='fa-li'><i class='far fa-arrow-alt-circle-right'></i></span><a href=''>{{$item['name']}}</a></li>
+
+                                       @endforeach
+
                                         <!--
                                         <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">National</a></li>
                                         <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right"></i></span><a href="">International</a></li>

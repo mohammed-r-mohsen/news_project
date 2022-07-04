@@ -43,6 +43,7 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+
         'images' => [
             'driver' => 'local',
             'root' =>  base_path().'public/images',

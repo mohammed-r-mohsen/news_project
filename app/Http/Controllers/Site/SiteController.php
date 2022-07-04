@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\News;
+use App\Models\Category;
 class SiteController extends Controller
 {
     /**
@@ -14,7 +15,10 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('site.index');
+        $News = News::all();
+        $Category = Category::all();
+
+        return view('site.index')->with('News' , $News)->with('Category' , $Category);
     }
 
     /**
